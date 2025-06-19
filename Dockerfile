@@ -45,8 +45,12 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
-
-
+# Set Git version info
+ENV GIT_COMMIT_HASH=$(git rev-parse HEAD) \
+    GIT_SHORT_HASH=$(git rev-parse --short HEAD) \
+    GIT_COMMIT_DATE=$(git log -1 --format=%cd --date=iso) \
+    GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) \
+    GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
 
 # Final stage for app image
 FROM base
