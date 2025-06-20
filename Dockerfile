@@ -8,7 +8,7 @@
 # For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
-ARG RUBY_VERSION=3.4.1
+ARG RUBY_VERSION=3.4.2
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 # Rails app lives here
@@ -45,7 +45,7 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
-# Set Git version info
+# Set Git version ENV variables
 ENV GIT_COMMIT_HASH=$(git rev-parse HEAD) \
     GIT_SHORT_HASH=$(git rev-parse --short HEAD) \
     GIT_COMMIT_DATE=$(git log -1 --format=%cd --date=iso) \
