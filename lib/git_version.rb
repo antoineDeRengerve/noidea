@@ -5,23 +5,23 @@ require "open3"
 class GitVersion
   class << self
     def commit_hash
-      ENV["GIT_COMMIT_HASH"] || run_git_command("rev-parse HEAD")
+      ENV["GIT_COMMIT_HASH"] || `git rev-parse HEAD 2>/dev/null || echo ""`
     end
 
     def short_hash
-      ENV["GIT_SHORT_HASH"] || run_git_command("rev-parse --short HEAD")
+      ENV["GIT_SHORT_HASH"] || `git rev-parse --short HEAD 2>/dev/null || echo ""`
     end
 
     def commit_date
-      ENV["GIT_COMMIT_DATE"] || run_git_command("log -1 --format=%cd --date=iso")
+      ENV["GIT_COMMIT_DATE"] || `git log -1 --format=%cd --date=iso 2>/dev/null || echo ""`
     end
 
     def branch
-      ENV["GIT_BRANCH"] || run_git_command("rev-parse --abbrev-ref HEAD")
+      ENV["GIT_BRANCH"] || `git rev-parse --abbrev-ref HEAD 2>/dev/null || echo ""`
     end
 
     def tag
-      ENV["GIT_TAG"] || run_git_command("describe --tags --abbrev=0 2>/dev/null")
+      ENV["GIT_TAG"] || `git describe --tags --abbrev=0 2>/dev/null || echo ""`
     end
 
     def version_info
@@ -32,22 +32,6 @@ class GitVersion
         branch: branch,
         tag: tag
       }
-    rescue => e
-      Rails.logger.warn "Could not extract Git version info: #{e.message}"
-      {error: "Git info unavailable"}
-    end
-
-    private
-
-    def run_git_command(command)
-      puts "Running git command: git #{command}"
-      stdout, stderr, status = Open3.capture3("git #{command}")
-
-      if status.success?
-        stdout.strip
-      else
-        "missing" # we do not want to fail the app if we cannot get some info
-      end
     end
   end
 end
