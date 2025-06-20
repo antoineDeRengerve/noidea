@@ -46,11 +46,17 @@ COPY . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Set Git version ENV variables
-ENV GIT_COMMIT_HASH=$(git rev-parse HEAD) \
-    GIT_SHORT_HASH=$(git rev-parse --short HEAD) \
-    GIT_COMMIT_DATE=$(git log -1 --format=%cd --date=iso) \
-    GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) \
-    GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+ARG GIT_COMMIT_HASH=$(git rev-parse HEAD)
+ARG GIT_SHORT_HASH=$(git rev-parse --short HEAD)
+ARG GIT_COMMIT_DATE=$(git log -1 --format=%cd --date=iso)
+ARG GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+ARG GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+
+ENV GIT_COMMIT_HASH=$GIT_COMMIT_HASH \
+    GIT_SHORT_HASH=$GIT_SHORT_HASH \
+    GIT_COMMIT_DATE=$GIT_COMMIT_DATE \
+    GIT_BRANCH=$GIT_BRANCH \
+    GIT_TAG=$GIT_TAG
 
 # Final stage for app image
 FROM base
