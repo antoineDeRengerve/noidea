@@ -2,12 +2,12 @@
 service: onedream-assistant
 
 # Name of the container image.
-image: your-user/onedream-assistant
+image: antoinederengerve/onedream
 
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.0.1
+    - 2a01:4f8:1c1a:fd08::1
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -19,13 +19,13 @@ servers:
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 proxy:
   ssl: true
-  host: app.example.com
+  host: onedream.world
 
 # Credentials for your image host.
 registry:
   # Specify the registry server, if you're not using Docker Hub
   # server: registry.digitalocean.com / ghcr.io / ...
-  username: your-user
+  username: antoinederengerve
 
   # Always use an access token rather than real password when possible.
   password:
@@ -35,6 +35,11 @@ registry:
 env:
   secret:
     - RAILS_MASTER_KEY
+    - GIT_COMMIT_HASH
+    - GIT_SHORT_HASH
+    - GIT_COMMIT_DATE
+    - GIT_BRANCH
+    - GIT_TAG
   clear:
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
@@ -65,13 +70,14 @@ aliases:
 # Use a persistent storage volume for sqlite database files and local Active Storage files.
 # Recommended to change this to a mounted volume path that is backed up off server.
 volumes:
-  - onedream_assistant_storage:/rails/storage"
+  - "onedream_assistant_storage:/rails/storage"
 
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
 # version inside the asset_path.
-asset_path: /rails/public/assets
+# asset_path: /rails/public/assets
+asset_path: /rails/public/vite
 
 # Configure the image builder.
 builder:
@@ -81,9 +87,12 @@ builder:
   # remote: ssh://docker@docker-builder-server
   #
   # # Pass arguments and secrets to the Docker build process
-  # args:
-  #   RUBY_VERSION: ruby-3.4.1
+  args:
+    RUBY_VERSION: 3.4.2
+    NODE_VERSION: 22.16.0
+    GIT_SHORT_HASH: $(echo "tota")
   # secrets:
+  #   - GIT_SHORT_HASH
   #   - GITHUB_TOKEN
   #   - RAILS_MASTER_KEY
 
