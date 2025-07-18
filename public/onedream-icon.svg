@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="-40 -40 79.006332 79.006332"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="onedream-icon.svg"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   inkscape:export-filename="onedream-icon.png"
+   inkscape:export-xdpi="622.12732"
+   inkscape:export-ydpi="622.12732"
+   width="79.006332"
+   height="79.006332"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.0962413"
+     inkscape:cx="62.740445"
+     inkscape:cy="16.844711"
+     inkscape:window-width="1440"
+     inkscape:window-height="847"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3"
+     showgrid="false" />
+  <g
+     id="g3"
+     transform="rotate(-137.08451,-0.34605819,-0.15077394)">
+    <g
+       id="g1">
+      <path
+         id="circle1"
+         d="M 38.208251,-7.8185403 C 42.526312,13.283294 28.920375,33.89019 7.8185403,38.208251 -13.283294,42.526312 -33.89019,28.920375 -38.208251,7.8185403 -42.526312,-13.283294 -28.920375,-33.89019 -7.8185403,-38.208251 13.283294,-42.526312 33.89019,-28.920375 38.208251,-7.8185403 Z"
+         sodipodi:nodetypes="sssss"
+         style="fill:#4c9ac7;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <path
+         fill="#ffffff"
+         d="M -1.56382,38.96691 C -22.533775,38.125344 -40.081845,19.605891 -39.240279,-1.3640495 -38.398713,-22.33399 -19.4922,-39.583032 1.4777542,-38.741466 11.962731,-38.320683 20.167387,-28.707793 19.746604,-18.222823 19.325822,-7.7378537 10.484977,0.42078307 0,0 c -10.484977,-0.42078307 -19.325822,7.7378537 -19.746605,18.222823 -0.420782,10.48497 7.697808,20.323304 18.182785,20.744087"
+         id="path1"
+         sodipodi:nodetypes="csssssc"
+         style="fill:#266b29;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <circle
+         r="5"
+         cy="19"
+         fill="#fff"
+         id="circle2"
+         style="fill:#266b29;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         cx="-7.410729e-11"
+         transform="rotate(2.2981608)" />
+      <circle
+         r="5"
+         cy="-19"
+         id="circle3"
+         style="fill:#4c9ac7;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         cx="-7.4107588e-11"
+         transform="rotate(2.2981608)" />
+    </g>
+  </g>
+</svg>
