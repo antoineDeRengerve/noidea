@@ -22,3 +22,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# PWA deployment
+
+Local testing
+* It is possible to test with local installation on macOS
+* In order to test production on smartphone, one needs to deploy on server so that the page is served with the adequate domain name
+
+Update the service worker:
+* Needs either to close all tabs
+* skip_waiting: click on button in dev tools > application > service worker section
+* click on dedicated button (not implemented yet)
