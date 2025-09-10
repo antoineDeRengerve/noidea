@@ -43,7 +43,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # Using Standardrb for linting
-  gem "standard", "~> 1.49", require: false
+  gem "standard", "~> 1.51", require: false
 end
 
 group :development do
